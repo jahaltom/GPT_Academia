@@ -115,7 +115,7 @@ Reattach: `tmux attach -t rag`
 ### 4.2 Allocate a compute node
 
 ```bash
-srun --pty -c 8 --mem=32G -t 02:00:00 bash
+srun --pty -N 1 -n 1 -c 12 --mem=32G --gres=gpu:1 -p gpuq -t 08:00:00 bash -l
 ```
 
 ---
