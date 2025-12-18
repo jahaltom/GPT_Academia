@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-EMAIL="your_real_email@institution.edu"
-TOOL="SARSCoV2_RAG_Downloader"
-OUTDIR="downloaded_pmc_papers"
-N=1000
+EMAIL="haltomj@chop.edu"   # required by NCBI
+TOOL="SARSCoV2_RAG_Downloader"             # tool identifier
+OUTDIR="pdfs"             # output directory
+N=1000                                    # max number of PDFs
 
 # Search PMC IDs (numeric) from PMC db
 QUERY='("SARS-CoV-2"[Title/Abstract] OR "COVID-19"[Title/Abstract]) AND 2020:3000[dp]'
