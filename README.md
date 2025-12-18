@@ -22,9 +22,10 @@ This README documents **every step** required to run the CMEM Retrieval‑Augmen
 
 ---
 
-## 0) One‑time directory setup
+## 0) Create conda enviroment (rag) and directory setup
 
 ```bash
+conda env create -f environment.yml
 mkdir -p /scr1/users/haltomj/ChatGPT_Acadamia/{bin,logs,qdrant_data,pdfs,parsed,index}
 ```
 
