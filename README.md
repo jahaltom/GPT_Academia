@@ -147,11 +147,9 @@ Expected output:
 
 ```bash
 python /scr1/users/haltomj/ChatGPT_Acadamia/rag_hpc.py \
-  --backend qdrant \
   --qdrant_host 127.0.0.1 \
   --qdrant_port 6333 \
   --qdrant_collection cmem_chunks \
-  --rebuild
 ```
 
 You will then see:
