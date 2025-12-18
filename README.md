@@ -72,17 +72,8 @@ storage:
 
 ---
 
-## 3) One‑time: Install Python dependencies
 
-Activate your conda environment and install required packages.
 
-```bash
-conda env export > environment.yml
-
-conda activate rag
-```
-
-(You already need: `sentence-transformers`, `transformers`, `torch`, `pdfplumber`, `rank-bm25`, `faiss-cpu/faiss-gpu`.)
 
 
 
@@ -149,7 +140,7 @@ Expected output:
 python /scr1/users/haltomj/ChatGPT_Acadamia/rag_hpc.py \
   --qdrant_host 127.0.0.1 \
   --qdrant_port 6333 \
-  --qdrant_collection cmem_chunks \
+  --qdrant_collection cmem_chunks 
 ```
 
 You will then see:
