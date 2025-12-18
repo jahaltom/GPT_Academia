@@ -610,7 +610,7 @@ class QdrantRagIndex:
         idxs = np.argsort(scores)[::-1][:fetch_k]
         return [int(i) for i in idxs if scores[i] > 0]
 
-    def _add_neighbors(self, idxs: List[int], neighbor_window: int = 1) -> List[int]:
+    def _add_neighbors(self, idxs: List[int], neighbor_window: int = 3) -> List[int]:
         out = set(idxs)
         for gi in idxs:
             c = self.chunks[gi]
@@ -631,8 +631,8 @@ class QdrantRagIndex:
         order = np.argsort(scores)[::-1]
         return [idxs[int(i)] for i in order]
 
-    def search(self, query: str, top_k: int = 8,
-               dense_fetch_k: int = 80, bm25_fetch_k: int = 80,
+    def search(self, query: str, top_k: int = 12,
+               dense_fetch_k: int = 200, bm25_fetch_k: int = 200,
                neighbor_window: int = 1, allow_rerank: bool = True,
                meta_filter: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
 
