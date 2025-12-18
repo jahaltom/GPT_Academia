@@ -30,7 +30,7 @@ bash getPapers.sh
 
 ---
 
-## Overview
+## RAG Overview
 
 **Architecture**
 
@@ -103,7 +103,7 @@ storage:
 ## 4) Interactive workflow (recommended for live Q&A)
 
 
-### 4.2 Allocate a compute node
+### 4.1 Allocate a compute node
 
 ```bash
 srun --pty -N 1 -n 1 -c 12 --mem=32G --gres=gpu:1 -p gpuq -t 08:00:00 bash -l
@@ -111,17 +111,15 @@ srun --pty -N 1 -n 1 -c 12 --mem=32G --gres=gpu:1 -p gpuq -t 08:00:00 bash -l
 
 ---
 
-### 4.3 Activate environment
+### 4.2 Activate environment
 
 ```bash
-source ~/miniconda3/etc/profile.d/conda.sh
 conda activate rag
-cd /scr1/users/haltomj/ChatGPT_Acadamia
 ```
 
 ---
 
-### 4.4 Start Qdrant (background)
+### 4.3 Start Qdrant (background)
 
 ```bash
 /scr1/users/haltomj/ChatGPT_Acadamia/bin/qdrant \
@@ -143,7 +141,7 @@ Expected output:
 
 ---
 
-### 4.5 Run the RAG pipeline
+### 4.4 Run the RAG pipeline
 
 **First run (build index + upload vectors):**
 
@@ -164,7 +162,7 @@ Ask questions interactively.
 
 ---
 
-### 4.6 Stop Qdrant (optional)
+### 4.5 Stop Qdrant (optional)
 
 ```bash
 ss -ltnp | grep 6333
