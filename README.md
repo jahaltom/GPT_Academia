@@ -36,17 +36,17 @@ Download the Linux x86_64 binary directly from GitHub.
 
 ```bash
 cd /scr1/users/haltomj/ChatGPT_Acadamia/bin
-
 VER="1.15.3"
 
-curl -L -o qdrant.tar.gz \
-  "https://github.com/qdrant/qdrant/releases/download/v${VER}/qdrant-x86_64-unknown-linux-gnu.tar.gz"
+# download musl/static build (name can vary slightly by release)
+curl -L -o qdrant_musl.tar.gz \
+  "https://github.com/qdrant/qdrant/releases/download/v${VER}/qdrant-x86_64-unknown-linux-musl.tar.gz"
 
-tar -xzf qdrant.tar.gz
-rm -f qdrant.tar.gz
+tar -xzf qdrant_musl.tar.gz
+rm -f qdrant_musl.tar.gz
 
-# verify
-./qdrant --help | head
+# verify it runs
+./qdrant --version
 ```
 
 > If this fails due to glibc incompatibilities, download the **musl / static** build from the same release page and repeat the steps.
