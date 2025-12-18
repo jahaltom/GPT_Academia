@@ -2,11 +2,6 @@
 
 This README documents **every step** required to run the CMEM Retrieval‑Augmented Generation (RAG) prototype on an HPC cluster **without Docker**, using **Qdrant** as the vector database and a local **Mistral‑7B** model.
 
-All files and data live under:
-
-```
-/scr1/users/haltomj/ChatGPT_Acadamia
-```
 
 ---
 
@@ -82,8 +77,9 @@ storage:
 Activate your conda environment and install required packages.
 
 ```bash
+conda env export > environment.yml
+
 conda activate rag
-pip install -U qdrant-client
 ```
 
 (You already need: `sentence-transformers`, `transformers`, `torch`, `pdfplumber`, `rank-bm25`, `faiss-cpu/faiss-gpu`.)
