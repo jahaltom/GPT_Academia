@@ -1,7 +1,32 @@
-# CMEM RAG Prototype (Qdrant + Mistral 7B) — HPC Setup Guide
+# CMEM RAG — HPC Guide
 
-This README documents **every step** required to run the CMEM Retrieval‑Augmented Generation (RAG) prototype on an HPC cluster **without Docker**, using **Qdrant** as the vector database and a local **Mistral‑7B** model.
+This README documents **every step** required to run the CMEM Retrieval‑Augmented Generation (RAG)  on an HPC cluster **without Docker**, using **Qdrant** as the vector database and a local **Mistral‑7B** model.
 
+
+## Create conda enviroment (rag) and directory setup
+
+```bash
+conda env create -f environment.yml
+
+mkdir -p {bin,logs,qdrant_data,pdfs,parsed,index}
+```
+
+## Download pdfs from PubMed
+
+### Configuration for getPapers.sh
+
+### Edit these variables at the top of the script then run:
+```bash
+EMAIL="haltomj@chop.edu"   # required by NCBI
+TOOL="SARSCoV2_RAG_Downloader"             # tool identifier
+OUTDIR="pdfs"             # output directory
+N=1000                                    # max number of PDFs
+QUERY='("SARS-CoV-2"[Title/Abstract] OR "COVID-19"[Title/Abstract]) AND 2020:3000[dp]'
+
+
+conda activate rag
+bash getPapers.sh
+```
 
 ---
 
@@ -16,18 +41,13 @@ This README documents **every step** required to run the CMEM Retrieval‑Augmen
 - Retrieval: dense + BM25 + reranking + neighbor expansion
 - Generation: **Mistral‑7B‑Instruct** (local)
 
+
+### Setting up Qdrant
+---
+
 **Key constraint**
 
 > Qdrant **must run on the same compute node** as `rag_hpc.py`.
-
----
-
-## 0) Create conda enviroment (rag) and directory setup
-
-```bash
-conda env create -f environment.yml
-mkdir -p /scr1/users/haltomj/ChatGPT_Acadamia/{bin,logs,qdrant_data,pdfs,parsed,index}
-```
 
 ---
 
@@ -82,16 +102,6 @@ storage:
 
 ## 4) Interactive workflow (recommended for live Q&A)
 
-### 4.1 Start tmux (protect against SSH disconnects)
-
-```bash
-tmux new -s rag
-```
-
-Detach: `Ctrl-b d`  
-Reattach: `tmux attach -t rag`
-
----
 
 ### 4.2 Allocate a compute node
 
