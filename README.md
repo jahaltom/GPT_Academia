@@ -267,15 +267,3 @@ sbatch /scr1/users/haltomj/ChatGPT_Acadamia/run_build_qdrant.sbatch
 
 ---
 
-## 8) Why Qdrant (for the grant)
-
-- Native metadata filtering (paper, chunk type, page)
-- Clean migration path to **Vertex AI Search / Vector**
-- Production‑grade persistence and traceability
-- Demonstrates compliance‑ready architecture
-
----
-
-**Maintainer:** Jeff Haltom  
-**Project:** CMEM‑AI RAG Prototype
-
