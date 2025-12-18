@@ -82,19 +82,13 @@ storage:
 Activate your conda environment and install required packages.
 
 ```bash
-source ~/miniconda3/etc/profile.d/conda.sh
 conda activate rag
-
 pip install -U qdrant-client
 ```
 
 (You already need: `sentence-transformers`, `transformers`, `torch`, `pdfplumber`, `rank-bm25`, `faiss-cpu/faiss-gpu`.)
 
-Check version:
 
-```bash
-python -c "import qdrant_client; print(qdrant_client.__version__)"
-```
 
 ---
 
@@ -103,7 +97,6 @@ python -c "import qdrant_client; print(qdrant_client.__version__)"
 ### 4.1 Start tmux (protect against SSH disconnects)
 
 ```bash
-ssh <cluster>
 tmux new -s rag
 ```
 
