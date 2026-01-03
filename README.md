@@ -149,7 +149,9 @@ Expected output:
 python /scr1/users/haltomj/ChatGPT_Acadamia/rag_hpc.py \
   --qdrant_host 127.0.0.1 \
   --qdrant_port 6333 \
-  --qdrant_collection cmem_chunks 
+  --qdrant_collection cmem_chunks \
+  --section METHODS \
+  --chunk_type text
 ```
 
 You will then see:
