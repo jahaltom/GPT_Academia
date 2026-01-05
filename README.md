@@ -146,7 +146,7 @@ Expected output:
 **First run (build index + upload vectors):**
 
 ```bash
-python rag_hpc.py --rebuild --recreate_collection --qdrant_host 127.0.0.1 --qdrant_port 6333 --qdrant_collection cmem_chunks
+python rag_hpc.py --rebuild --recreate_collection --qdrant_host 127.0.0.1 --qdrant_port 6333 --qdrant_collection cmem_chunks --rerank
 
 ```
 
